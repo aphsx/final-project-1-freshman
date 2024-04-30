@@ -50,7 +50,6 @@ def main():
     profile_menu.add_command(label='Log In',command=login_page)
     profile_menu.add_command(label='Close Program', command=root.destroy)
     menubar.add_cascade(label="Modify", menu=profile_menu)
-
     
     return root
 
