@@ -4,6 +4,8 @@ from tkinter import Frame, Entry, Button
 import tkinter as tk
 from tkinter import messagebox
 
+print("hello word")
+
 def connect_database():
     global connection, cursor
     connection = sqlite3.connect('db/school.db')
