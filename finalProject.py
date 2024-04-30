@@ -138,7 +138,7 @@ def login_page():
     button_3 = Button(login_frame, text="Login", width=20, height=2, bg="#A79277",command=login_click)
     button_3.grid(row=6, column=0,sticky="s")
     
-    button_1 = Button(login_frame, text="Forgot Password ?",
+    button_1 = Button(login_frame, text="Registration",
                                     font=("yu gothic ui", 13, "bold underline"), fg="white", relief=FLAT,
                                     activebackground="#EAD8C0"
                                     , borderwidth=0, background="#EAD8C0", cursor="hand2",command=register_page)
@@ -328,7 +328,7 @@ def admin_page():
     button_addinfo.grid(row=8, column=0)
     button_updateinfo = Button(right_frame, text="Update", width=20, height=2, bg="#EAD8C0",command=update_players)
     button_updateinfo.grid(row=8, column=1)
-    button_backtohome = Button(right_frame, text="Back Home", width=20, height=2, bg="#EAD8C0",command=delete_players)
+    button_backtohome = Button(right_frame, text="delete", width=20, height=2, bg="#EAD8C0",command=delete_players)
     button_backtohome.grid(row=8, column=2)
     button_clearinfo = Button(right_frame, text="Clear", width=20, height=2, bg="#EAD8C0",command=clearinfo)
     button_clearinfo.grid(row=8, column=3)
@@ -352,7 +352,7 @@ def find_ID():
     entry_crosshair.delete(0, "end")
     
     if name_search_entry.get() == "":
-        messagebox.showwarning("Admin", "Please enter Student ID")
+        messagebox.showwarning("Admin", "Please enter player name.")
         name_search_entry.focus_force()
     else:
         sql = "SELECT * FROM players WHERE player_name=?"
@@ -378,7 +378,7 @@ def find_ID():
 
             entry_crosshair.insert(0, student_info[13])
         else:
-            messagebox.showwarning("Admin", "Not Found ID in DATABASE")
+            messagebox.showwarning("Admin", "Not Found player in DATABASE")
             
 def add_players():
     sql = "INSERT INTO players (player_name, real_name, birth, team, country, dpi, sen, winsen, edpi, scopedsen, adssen, rawinput, hz, crosshair) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
@@ -482,7 +482,7 @@ def delete_players():
 
     # ตรวจสอบว่าชื่อผู้เล่นไม่ว่างเปล่า
     if not player_name:
-        messagebox.showerror("Error", "Please enter the player's name.")
+        messagebox.showerror("Error", "Please enter the player name.")
         return
     # ลบข้อมูลผู้เล่นจากฐานข้อมูล
     sql = "DELETE FROM players WHERE player_name = ?"
@@ -520,7 +520,7 @@ def find_playername():
             ripinfo.config(text="" + player_info[11])
             crosshairinfo.insert(0, player_info[13])
         else:
-            messagebox.showwarning("Admin", "Not Found ID in DATABASE")
+            messagebox.showwarning("Admin", "Not Found Player in DATABASE")
 root = main()
 
 # เมื่อ root window ถูกสร้างขึ้นเรียบร้อยแล้วจึงทำคำสั่งอื่นๆ
