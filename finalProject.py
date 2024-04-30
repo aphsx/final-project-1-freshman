@@ -19,7 +19,7 @@ def main():
     window_width = 1270
     window_height = 720
     screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
+    screen_height = root.winfo_screenheight() 
     
     # Calculate position to center the window
     x_coordinate = (screen_width - window_width) // 2
@@ -46,18 +46,11 @@ def main():
 
     # Create profile menu
     profile_menu = Menu(menubar, tearoff=0)
-    profile_menu.add_command(label='My Profile',command=open_home_page)
     profile_menu.add_command(label='Admin',command=login_page)
     profile_menu.add_command(label='Log In',command=login_page)
     profile_menu.add_command(label='Close Program', command=root.destroy)
-    menubar.add_cascade(label="Profile", menu=profile_menu)
+    menubar.add_cascade(label="Modify", menu=profile_menu)
 
-    # Create help menu
-    help_menu = Menu(menubar, tearoff=0)
-    help_menu.add_command(label='Welcome')
-    help_menu.add_command(label='About Us')
-    help_menu.add_command(label='Read')
-    menubar.add_cascade(label="Help", menu=help_menu)
     
     return root
 
